@@ -1,15 +1,22 @@
 (function () {
-    const ulChilds = document.getElementById('ulId').childNodes
+    const ul = document.getElementById('ulId');
 
-    const arr = [];
-    const arr2 = [];
-    for(const element of ulChilds) {
-        if (element instanceof HTMLLIElement) {
-            arr.push(element);
-            arr2.push(element.innerText)
-            console.log(element);
-        }
+    const nameAttr = [];
+    const valueAttr = [];
+
+    for (const element of ul.children) {
+        console.log(element);
     }
-    console.log(arr.length);
-    console.log(arr2);
+    for (const attr of ul.attributes) {
+        valueAttr.push(attr.value);
+        nameAttr.push(attr.name);
+
+    }
+
+    console.log(nameAttr);
+    console.log(valueAttr);
+
+    ul.lastElementChild.innerHTML = "Привіт моє ім’я Антон";
+    ul.firstElementChild.setAttribute("data-my-name", "Anton");
+    ul.removeAttribute("data-dog-tail");
 })()
